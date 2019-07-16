@@ -5,7 +5,7 @@ import {
 } from '../actions/journeysActions';
 
 const initialState = {
-  journeys: [],
+  tickets: [],
   loading: false,
   error: null
 };
@@ -26,7 +26,7 @@ export default function journeysReducer(
       return {
         ...state,
         loading: false,
-        journeys: payload.journeys
+        tickets: payload.tickets
       };
 
     case FETCH_JOURNEYS_FAILURE:

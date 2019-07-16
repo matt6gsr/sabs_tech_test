@@ -4,7 +4,7 @@ import { getJourneysData } from '../actions/journeysActions';
 import Ticket from './Ticket';
 
 export const TicketList = () => {
-  const journeys = useSelector(state => state.journeys);
+  const tickets = useSelector(state => state.tickets);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,11 +13,9 @@ export const TicketList = () => {
 
   return (
     <div className="ticket-list">
-      {journeys.map(journey =>
-        journey.Legs[0].TKTs.map(TKT => (
-          <Ticket key={journey.TicketCode} journey={journey} TKT={TKT} />
-        ))
-      )}
+      {tickets.map(ticket => (
+        <Ticket key={ticket.TicketCode} ticket={ticket} />
+      ))}
     </div>
   );
 };
