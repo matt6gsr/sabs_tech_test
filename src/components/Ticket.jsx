@@ -19,15 +19,20 @@ export default function Ticket({ ticket }) {
           <MoreInfoButton isHidden={isHidden} setIsHidden={setIsHidden} />
         </div>
       </div>
-      <div className={isHidden ? 'hidden' : ''}>
-        <h3>
+      <div className={isHidden ? 'moreinfo hidden' : 'moreinfo '}>
+        <h4>
           Departing {ticket.DepStationCode} at {ticket.DepTime}
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           Arriving at {ticket.ArrStationCode} at {ticket.ArrTime}
-        </h3>
-        <h3>Ticket Type: {ticket.TicketDescription}</h3>
-        <h3>Number Of Legs On This Journey: {ticket.OutBoundLegs}</h3>
+        </h4>
+        <h4>Ticket Type: {ticket.TicketDescription}</h4>
+        <h4>Number Of Legs On This Journey: {ticket.OutBoundLegs}</h4>
+        <h4>
+          Single or Return:{' '}
+          {ticket.SingleOrReturn === 'S' ? 'Single' : 'Return'}
+        </h4>
+        <h4>Ticket Code: {ticket.TicketCode}</h4>
       </div>
     </div>
   );

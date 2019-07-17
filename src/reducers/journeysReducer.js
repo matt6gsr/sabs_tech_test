@@ -1,13 +1,16 @@
 import {
   FETCH_JOURNEYS_BEGIN,
   FETCH_JOURNEYS_SUCCESS,
-  FETCH_JOURNEYS_FAILURE
+  FETCH_JOURNEYS_FAILURE,
+  SORT_TICKETS_BY_PRICE,
+  SORT_TICKETS_BY_TIME
 } from '../actions/journeysActions';
 
 const initialState = {
   tickets: [],
-  loading: false,
-  error: null
+  error: null,
+  isSortedByDate: true,
+  isSortedBy: 'time'
 };
 
 export default function journeysReducer(
@@ -25,15 +28,29 @@ export default function journeysReducer(
     case FETCH_JOURNEYS_SUCCESS:
       return {
         ...state,
-        loading: false,
         tickets: payload.tickets
       };
 
     case FETCH_JOURNEYS_FAILURE:
       return {
         ...state,
-        loading: false,
         error: payload.error
+      };
+
+    case SORT_TICKETS_BY_PRICE:
+      return {
+        ...state,
+        type: SORT_TICKETS_BY_PRICE,
+        tickets: payload.tickets,
+        isSortedBy: payload.isSortedBy
+      };
+
+    case SORT_TICKETS_BY_TIME:
+      return {
+        ...state,
+        type: SORT_TICKETS_BY_TIME,
+        tickets: payload.tickets,
+        isSortedBy: payload.isSortedBy
       };
 
     default:
