@@ -1,4 +1,3 @@
-//import { parseData } utils from '../utils/utils';
 const journeysData = '../assets/results.json';
 
 export function getJourneysData() {
